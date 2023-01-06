@@ -39,13 +39,14 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav ml-auto'],
         'items' => [
             ['label' => 'Поиск', 'url' => ['/site/index']],
+            ['label' => 'Показания к применению', 'url' => ['/naznachenie/ind-list']],
 
 
             !Yii::$app->user->isGuest  ? ['label' => 'Добавить', 'items' => [
                 ['label' => 'Лекарство', 'url' => ['/medicine/index']],
                 ['label' => 'Показания', 'url' => ['/naznachenie/index']],
                 ['label' => 'Противопоказания', 'url' => ['/protivop/index']],
-                ['label' => 'Вещество', 'url' => ['/vechestvo/index']],
+                ['label' => 'Вещество', 'url' => ['/admin/vechestvo/index']],
             ]] : '',
 
             ['label' => 'О компании', 'url' => ['/site/about']],

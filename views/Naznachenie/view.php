@@ -38,6 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
-    <?php echo Html::a('Назад', Yii::$app->request->referrer, ['class' => 'btn btn-lg btn-outline-primary']); ?>
+    <?php echo Html::a('Назад', ['/site/index'], ['class' => 'btn btn-lg btn-outline-primary']); ?>
 
 </div>

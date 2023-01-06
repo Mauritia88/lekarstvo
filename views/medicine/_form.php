@@ -60,7 +60,7 @@ use yii\widgets\ActiveForm;
     ])->label('Выберите противопоказания'); ?>
 
     <?= $form->field($model, 'mnvechestvo')->widget(Select2::classname(), [
-        'data' => ArrayHelper::map(\app\models\Vechestvo::find()->all(), 'id_ves', 'title'),
+        'data' => ArrayHelper::map(\app\modules\admin\models\Vechestvo::find()->all(), 'id_ves', 'title'),
         'options' => ['placeholder' => 'Выберите активные вещества ...', 'multiple' => true],
         'pluginOptions' => [
             'tags' => true,
@@ -73,7 +73,9 @@ use yii\widgets\ActiveForm;
     <!--    dropDownList(ArrayHelper::map(\app\models\Naznachenie::find()->all(), 'id_nazn', 'title'),-->
     <!--        ['prompt' => 'Укажите назначение'])->label(false); -->
 
-<!--    <pre>--><?//= print_r($model->getNaznMeds()->asArray()->all());?><!--</pre>-->
+<!--    <pre>--><?//= $ttt=ArrayHelper::map($model->getNaznMeds()->asArray()->all(), 'id_nazn', 'id_nazn');
+//        print_r(count(array_keys($ttt)));
+//        print_r('dsfsgsf')?><!--</pre>-->
 
 
     <div class="form-group">

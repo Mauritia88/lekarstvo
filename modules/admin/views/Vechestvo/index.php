@@ -1,16 +1,16 @@
 <?php
 
-use app\models\Vechestvo;
+use app\modules\admin\models\Vechestvo;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var app\models\VechestvoSearch $searchModel */
+/** @var app\modules\admin\models\VechestvoSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Vechestvos';
+$this->title = 'Vechestvo';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vechestvo-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Vechestvo', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

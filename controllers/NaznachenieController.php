@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\models\Naznachenie;
 use app\models\NaznachenieSearch;
-use yii\data\ActiveDataProvider;
+use Yii;
 use yii\data\ArrayDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -65,7 +65,7 @@ class NaznachenieController extends Controller
         );
         return $this->render('view', [
             'model' => $nazn,
-            'naznDataProvider'=>$naznDataProvider,
+            'naznDataProvider' => $naznDataProvider,
 
         ]);
     }
@@ -140,5 +140,17 @@ class NaznachenieController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionIndList()
+    {
+        $searchModel = new NaznachenieSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('ind-list', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+
     }
 }

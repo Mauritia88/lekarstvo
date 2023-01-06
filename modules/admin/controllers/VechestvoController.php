@@ -1,9 +1,9 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\admin\controllers;
 
-use app\models\Vechestvo;
-use app\models\VechestvoSearch;
+use app\modules\admin\models\Vechestvo;
+use app\modules\admin\models\VechestvoSearch;
 use yii\data\ArrayDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -78,7 +78,7 @@ class VechestvoController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id_ves' => $model->id_ves]);
+                return $this->redirect(['index']);
             }
         } else {
             $model->loadDefaultValues();
@@ -101,7 +101,7 @@ class VechestvoController extends Controller
         $model = $this->findModel($id_ves);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_ves' => $model->id_ves]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

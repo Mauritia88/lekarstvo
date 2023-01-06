@@ -1,8 +1,8 @@
 <?php
 
-namespace app\models;
+namespace app\modules\admin\models;
 
-use app\models\Vechestvo;
+use app\modules\admin\models\Vechestvo;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 

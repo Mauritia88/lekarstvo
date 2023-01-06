@@ -175,13 +175,25 @@ class MedicineController extends Controller
         $query = Medicine::find()->where(['like', 'name', $sea]);
         $dataProvider = new ActiveDataProvider([
                 'query' => $query,
-                'pagination' => ['pageSize' => 3],
+                'pagination' => ['pageSize' => 5],
             ]
         );
         if ($sea != null && !empty($sea)) {
-            return $this->render('index', compact('dataProvider', 'sea'));
+            return $this->render('index-list', compact('dataProvider', 'sea'));
         } else {
             return $this->render('/site/index');
         }
     }
+    public function actionIndexList()
+    {
+        $searchModel = new MedicineSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('index-list', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
 }

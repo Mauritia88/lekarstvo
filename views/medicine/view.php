@@ -8,7 +8,7 @@ use yii\widgets\DetailView;
 /** @var app\models\Medicine $model */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Medicines', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => 'Medicines', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1 class="text-center mb-4" style="color: #1c7430;"><?= Html::encode($this->title) ?></h1>
 
+    <?php echo \yii\helpers\Html::a('Назад', Yii::$app->request->referrer, ['class' => 'btn btn-outline-secondary']); ?>
 
     <div class="container-fluid">
 
@@ -59,6 +60,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ]) ?>
             </div>
-            <?php echo Html::a('Назад', ['/site/index'], ['class' => 'btn btn-lg btn-outline-primary']); ?>
+<!--            --><?php //echo Html::a('Назад', ['/site/index'], ['class' => 'btn btn-lg btn-outline-primary']); ?>
         </div>
     </div>
