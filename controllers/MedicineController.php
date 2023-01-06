@@ -60,8 +60,13 @@ class MedicineController extends Controller
      */
     public function actionView($id_med)
     {
+        $leks = Medicine::find()->where(['not', ['id_med' => $id_med]])
+//            ->joinWith('naznMeds', 'id_nazn = id_nazn')
+            ->limit(12)->all();
+
         return $this->render('view', [
             'model' => $this->findModel($id_med),
+            'leks' => $leks,
         ]);
     }
 
@@ -184,6 +189,7 @@ class MedicineController extends Controller
             return $this->render('/site/index');
         }
     }
+
     public function actionIndexList()
     {
         $searchModel = new MedicineSearch();

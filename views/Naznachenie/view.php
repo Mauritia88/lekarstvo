@@ -8,7 +8,7 @@ use yii\widgets\DetailView;
 /** @var app\models\Naznachenie $model */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Naznachenies', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => 'Naznachenie', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,16 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1 class="text-center text-uppercase"><?= Html::encode($this->title) ?></h1>
 
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            //           'title',
-        ],
-    ]) ?>
     <?= GridView::widget([
         'dataProvider' => $naznDataProvider,
         'summary' => false,
+        'emptyText' => '<p>Список пуст</p>',
         'columns' => [
             [
                 'attribute' => 'Лекарства:',

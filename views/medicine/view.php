@@ -37,9 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             'attribute' => 'Показания',
                             'value' => function (Medicine $data) {
                                 return implode(', ', array_map(function ($array) {
-                                    return $array['title'];
+                                    return Html::a($array['title'], ['/naznachenie/view', 'id_nazn' => $array['id_nazn']], ['class' => 'profile-link text-reset']);
                                 }, $data->getNaznMeds()->asArray()->all()));
                             },
+                            'format'=>'html',
                         ],
                         [
                             'attribute' => 'Противопоказания',
@@ -60,6 +61,29 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ]) ?>
             </div>
-<!--            --><?php //echo Html::a('Назад', ['/site/index'], ['class' => 'btn btn-lg btn-outline-primary']); ?>
+            <hr size=5px width="100%" align="center">
+
+            <br>
+            <div class="container">
+                <h1 class="text-center">Другие лекарства:</h1>
+
+                <div class="analogs row">
+
+                    <?php foreach ($leks as $lek): ?>
+                        <div class="film col-4">
+                            <img src="<?= Yii::$app->homeUrl . 'image/med/' . $lek->foto; ?>" alt="Постер" width="300px"
+                                 height="200px">
+                            <br>
+                            <p class="film-link text-center">
+                                <?= Html::a($lek->name, ['view', 'id_med' => $lek->id_med], ['class' => 'profile-link']) ?>
+                            </p>
+
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+
+            </div>
         </div>
     </div>
+</div>

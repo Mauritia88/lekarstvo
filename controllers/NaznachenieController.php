@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Medicine;
 use app\models\Naznachenie;
 use app\models\NaznachenieSearch;
 use Yii;
@@ -151,6 +152,6 @@ class NaznachenieController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-
     }
+
 }
